@@ -1,0 +1,375 @@
+
+  [{
+
+    "sceneId": 1,
+    "gameIntro" : "Welcome to Realti, \nA text based survival game!!!. \n\nYou are now one of last living humans on the planet enduring an ongoing pandemic. You are a scientist in the Cosmos Research Center.\nIt is the last surviving laboratory that is researching the Realti virus, the major cause for the pandemic.\nThe deadly virus has now reached the doorsteps of the laboratory affecting all your fellow scientists.\nYou have managed to lock yourself in one of the clean rooms and you are continuing your research. \nYou have cracked the formula to destroy the virus but a new challenge awaits you, as the required compounds for the cure is placed in different places of the research facility. \nYou need to navigate through a labyrinth of environments in the research facility to obtain the ultimate weapon.\nYou can perform the following tasks to navigate: \n1) Go North\n2) Go East\n3) Go West \n4) Go South \n5) Hint",
+    "description": "\nLets Start, shall we!",
+      "combos" : [
+      {
+        "name" : "mask",
+        "ingredients": ["thread","cloth"],
+        "print" : "You have the ingredients to make a mask. You have a protective mask now"
+      },
+      {
+        "name" : "vaccine",
+        "ingredients": ["compoundX", "specimen15"],
+        "print" : "Bravo!!!! You have the ultimate weapon - The Vaccine"
+      },
+      {
+        "name" : "Air Dispatch",
+        "ingredients" : ["vaccine", "UAV"],
+        "print": "The drone is now equipped with the vaccine. The vaccine has been dispatched worldwide."
+      }
+    ],
+    "actions": [
+      {
+        "name" : "go",
+        "objects": [
+          {
+            "name": "north",
+            "outcome": "stay",
+            "print": "Nothing to see here. It all empty"
+          },
+          {
+            "name" : "south",
+            "outcome": "stay",
+            "print": "Sorry! You ended up where you started"
+
+          },
+          {
+              "name": "east",
+              "outcome": "stay",
+              "print": "You are still stuck in this room!"
+          },
+          {
+              "name" : "west",
+              "outcome": "move",
+              "gotoSceneId": 2,
+              "print": "You found a door to the next room"
+          }
+        ]
+      },
+      {
+        "name": "hint",
+        "print": "You might know the direction to proceed if you are a fan of John Wayne"
+      }
+    ]
+  },
+
+  {
+    "sceneId": 2,
+    "description": "You have exited your clean room. Try to look around for useful clues",
+    "actions": [
+      {
+        "name" : "go",
+        "objects": [
+          {
+            "name": "north",
+            "outcome": "stay",
+            "print": "Sorry pal!, Its a dead end"
+          },
+          {
+              "name": "east",
+              "outcome": "move",
+              "gotoSceneId": 1,
+              "print": "That's the back door to your clean room."
+          },
+
+          {
+              "name" : "west",
+              "outcome": "move",
+              "gotoSceneId": 3,
+              "print": "You found a door to the Immunology lab"
+          },
+         {
+            "name" : "south",
+            "outcome": "move",
+            "gotoSceneId": 1,
+            "print": "Oops!, You are back to your clean room"
+          }
+        ]
+      },
+      {
+        "name": "hint",
+        "print": "Sun rises in the?, the most obvious wrong answer."
+      }
+    ]
+  },
+
+  {
+    "sceneId": 3,
+    "description": "You have entered the Immunology lab. Try to look around for useful clues",
+    "actions": [
+      {
+        "name" : "go",
+        "objects": [
+          {
+            "name": "north",
+            "outcome": "stay",
+            "print": "You hit a wall, look back and turn to your left"
+          },
+          {
+              "name": "east",
+              "outcome": "move",
+              "gotoSceneId": 4,
+              "print": "You reached a corridor to the Microbiology research lab"
+          },
+
+          {
+              "name" : "west",
+              "outcome": "stay",
+              "print": "You see a mirror in the wall, and you see a door in the mirror"
+          },
+         {
+            "name" : "south",
+            "outcome": "move",
+            "gotoSceneId": 1,
+            "print": "Looks like there is nothing in this room"
+          }
+        ]
+      },
+      {
+        "name": "hint",
+        "print": "Common mate! Not the easy route again! At least try!!!!"
+      }
+    ]
+  },
+
+  {
+    "sceneId": 4,
+    "description": "You are in the Microbiology research lab. Try to look around for useful clues",
+    "actions": [
+      {
+        "name" : "go",
+        "objects": [
+          {
+            "name": "north",
+            "outcome": "item",
+            "weapon": "thread",
+            "print": "You reached a closet, You have found some threads. It is stowed in your backpack now"
+          },
+          {
+              "name": "east",
+              "outcome": "stay",
+              "print": "You have found the exit on your right. Make sure you have investigated the area completely before leaving"
+          },
+
+          {
+              "name" : "west",
+              "outcome": "stay",
+              "print": "There is a closet, unfortunately its empty"
+          },
+         {
+            "name" : "south",
+            "outcome": "move",
+            "gotoSceneId": 5,
+            "print": "You are exiting this lab. You see a staircase to the next floor"
+          }
+        ]
+      },
+      {
+        "name": "hint",
+        "print": "There are some materials here which you might need later. It could in the direction associated with a Reindeer "
+      }
+    ]
+ },
+
+  {
+    "sceneId": 5,
+    "description": "You are in the Immunogenetics center. Beware! your colleagues were affected with the virus on this floor, Be vigilante in every room on this floor, Take precautions!!",
+    "actions": [
+      {
+        "name" : "go",
+        "objects": [
+          {
+            "name": "north",
+            "outcome": "move",
+            "gotoSceneId": 6,
+            "print": "You are exiting this lab and entering the Virology center."
+          },
+          {
+            "name": "east",
+            "outcome": "stay",
+            "print": "You are still here."
+          },
+
+          {
+              "name" : "west",
+              "outcome": "item",
+              "weapon": "compoundX",
+              "print": "You find a burette filled with an essential chemical compound for the cure - CompoundX. You have safely stored it in a container and placed it in your backpack"
+          },
+         {
+            "name" : "south",
+            "outcome": "move",
+            "gotoSceneId": 7,
+            "print": "You found an elevator to the next floor - A shortcut to the Clinical Trials Center."
+          }
+        ]
+      },
+      {
+        "name": "hint",
+        "print": "A critical component for your mission is present in this room. Also, there might be multiple exits from this room. Choose wisely"
+      }
+    ]
+ },
+
+  {
+    "sceneId": 6,
+    "description": "You have entered the Virology center. One of your colleagues contacted you from this room before locking himself up in the Quarantine room.\nYour phone sensors sense high contamination levels.\nTake necessary precautions.",
+    "actions": [
+      {
+        "name" : "go",
+        "objects": [
+          {
+            "name": "north",
+            "outcome": "item",
+            "weapon": "cloth",
+            "print": "You have found a piece of cloth."
+          },
+          {
+              "name": "east",
+              "outcome": "stay",
+              "print": "You turn back and you see an exit."
+          },
+
+          {
+              "name" : "west",
+              "outcome": "stay",
+              "print": "Its a dead end"
+          },
+         {
+            "name" : "south",
+            "outcome": "move",
+            "gotoSceneId": 5,
+            "print": "You are returning to the Immunogenetics  center. You are exiting this highly contaminated lab. You can breathe now! I mean literally you can breathe now!!!"
+          }
+        ]
+      },
+      {
+        "name": "hint",
+        "print": "Your first line of defence is right here in the direction in which every compass on earth points. Protect yourself before saving the world!"
+      }
+    ]
+ },
+
+  {
+    "sceneId": 7,
+    "description": "You are in the Clinical Trials Center on the next floor. Your contamination sensors are off charts. Hope you have your shields up. Take precautions!!",
+    "actions": [
+      {
+        "name" : "go",
+        "objects": [
+          {
+            "name": "north",
+            "outcome": "stay",
+            "print": "Nothing to see here!"
+          },
+          {
+            "name": "east",
+            "outcome": "item",
+            "weapon": "specimen15",
+            "print": "You have found the final part of the missing puzzle. You have stumbled upon specimen15"
+          },
+
+          {
+            "name" : "west",
+            "outcome": "move",
+            "gotoSceneId": 6,
+            "print": "You are returning to the Virology Center."
+          },
+         {
+            "name" : "south",
+            "outcome": "move",
+            "gotoSceneId": 8,
+            "print": "You are exiting this area."
+          }
+        ]
+      },
+      {
+        "name": "hint",
+        "print": "You have come a long way! Your intermediate reward is here in the direction where you can find Zen"
+      }
+    ]
+ },
+
+  {
+    "sceneId": 8,
+    "description": "This is the infectious diseases research center. This is speculated to be epicenter of the Realti virus. Take precautions!!",
+    "actions": [
+      {
+        "name" : "go",
+        "objects": [
+          {
+            "name": "north",
+            "outcome": "move",
+            "gotoSceneId": 7,
+            "print": "You are back in clinical trials center"
+          },
+          {
+            "name": "east",
+            "outcome": "stay",
+            "print": "A wall"
+          },
+          {
+            "name" : "west",
+            "outcome": "stay",
+            "print": "A wall"
+          },
+         {
+            "name" : "south",
+            "outcome": "move",
+            "gotoSceneId": 9,
+            "print": "You see a ray of light at the corner of the room. Its a ladder to the roof."
+          }
+        ]
+      },
+      {
+        "name": "hint",
+        "print": "There is nothing here, just run out of here before you die or go back!"
+      }
+    ]
+ },
+
+  {
+    "sceneId": 9,
+    "description": "This is the roof top. Finally some fresh air but it's still contaminated. Take precautions!!",
+    "actions": [
+      {
+        "name" : "go",
+        "objects": [
+          {
+            "name": "north",
+            "outcome": "stay",
+            "print": "Just an empty space"
+          },
+          {
+            "name": "east",
+            "outcome": "Success",
+            "print": "You see an UAV. The drone is now equipped with the vaccine. The vaccine has been dispatched worldwide.\n\nCongratulations!! You have saved the world"
+          },
+
+          {
+            "name" : "west",
+            "outcome": "stay",
+            "print": "Just an empty space"
+          },
+         {
+            "name" : "south",
+            "outcome": "stay",
+            "print": "Just an empty space"
+          }
+        ]
+      },
+      {
+        "name": "hint",
+        "print": "There is only one from here and it's the way forward."
+      }
+    ]
+ }
+  ]
+
+
+
+
+

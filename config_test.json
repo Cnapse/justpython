@@ -1,0 +1,49 @@
+
+  [{
+
+    "sceneId": 1,
+    "gameIntro": "Welcome to Text-Based Game",
+    "description": "You have opened the door to the chamber of secrets",
+     "combos" : [
+      {
+        "name" : "mask",
+        "ingredients": ["thread","cloth"],
+        "print" : "You have the ingredients to make a mask. You have a protective mask now"
+      }
+     ],
+    "actions": [
+      {
+        "name" : "go",
+        "objects": [
+          {
+            "name": "north",
+            "outcome": "Success",
+            "print": "Hey! Great job You have won the game"
+          },
+          {
+            "name" : "south",
+            "outcome": "Game over",
+            "print": "Sorry! you lost the game"
+
+          },
+          {
+            "name": "east",
+              "outcome": "stay",
+              "print": "You are still stuck in this room!"
+          },
+          {
+              "name" : "west",
+              "outcome": "move",
+              "gotoSceneId": 1,
+              "print": "East or west, you stay here for the rest"
+          }
+        ]
+      },
+      {
+        "name": "hint",
+        "print": "You have a magnetic compass choose a direction to GO"
+      }
+    ]
+  }
+    ]
+
